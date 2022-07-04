@@ -31,7 +31,12 @@ namespace ConsoleApp1.Repository
 			_context.Remove(note);
 			await _context.SaveChangesAsync();
 		}
-		
+		public async Task<IEnumerable<Note>> GetAll()
+		{
+			var notes = await _context.Notes.ToListAsync();
+			return notes;
+		}
+
 
 	}
 }
